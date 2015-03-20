@@ -1,16 +1,19 @@
 #include <iostream>
 #include "Pizza.h"
-#include "round.h"
 using namespace std;
 //===================================
-int main(int argc, char *argv[])
+int main()
 {
 	char ifavor;
 	unsigned int isize;//³ß´ç
 	float inumber;//¸öÊý
-	cin>>ifavor>>isize>>inumber;
+	/*cin>>ifavor>>isize>>inumber;
 	Pizza bb(ifavor,isize,inumber);
 	bb.show();
 	system("pause");
-	bb.sale();
+	bb.sale();*/
+	Pizza cc("f-4-0.25");
+	cc.show();
+	system("pause");
+	cc.sale();
 }

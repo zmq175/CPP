@@ -1,8 +1,21 @@
 #include <iostream>
 #include <iomanip>
+#include <string>
 #include "Pizza.h"
 using namespace std;
 //======================================
+Pizza::Pizza(char ifavor,int isize,float inumber)
+{
+		favor=ifavor;
+		size=isize;
+		number=inumber;
+}
+Pizza::Pizza(const string &str)
+{
+	favor = str[0];
+	size = str[2];
+	number = atof(str.substr(4, str.length()-4).c_str());
+}
 void Pizza::show()
 {
 	int complete_num=number;
@@ -12,7 +25,7 @@ void Pizza::show()
 	}
 	else
 	{
-		if (number != complete_num + 0.25&&number != complete_num + 0.5&&number != complete_num + 0.75&&number != complete_num)
+		if(number!=complete_num+0.25&&number!=complete_num+0.5&&number!=complete_num+0.75)
 		{
 			cout<<"您输入的个数不合法！"<<endl;
 		}

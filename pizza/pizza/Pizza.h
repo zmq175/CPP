@@ -1,7 +1,10 @@
+#include <string>
+using namespace std;
 class Pizza
 {
 public:
-	Pizza(char ifavor,int isize,float inumber):favor(ifavor),size(isize),number(inumber),price(20){}
+	Pizza(char ifavor='f',int isize=4,float inumber=1);
+	Pizza(const string &str);
 	void show();
 	void sale();
 private:
