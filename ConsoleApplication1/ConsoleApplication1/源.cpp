@@ -1,48 +1,64 @@
 #include<iostream>
-#include<vector>
+#include <GL\glut.h>
 using namespace std;
-void quickSort(vector <int> &arr, int l, int r);
-int main()
+
+void DrawHeart()
 {
-	vector <int> arr;
-	int a;
-	while (cin >> a&&a != 0)
+	int n = 40;
+
+	float r = 1.0;
+
+	float pi = 3.141593;
+
+
+	
+
+	glBegin(GL_LINES);
+
+	for (int i = 0; i < n; i++)
+
 	{
-		arr.push_back(a);
+
+		for (int j = 0; j < n; j++)
+
+		{
+
+			float u1 = j * 2 * pi / n;
+
+			float u2 = (j + 1) * 2 * pi / n;
+
+			float v = i * 2 * pi / n;
+
+			float x1 = r * (cos(v + pi / 2) + 2 * sin(v / 2) * cos(u1));
+
+			float y1 = r * (sin(v + pi / 2) + 2 * sin(v / 2) * sin(u1));
+
+			float x2 = r * (cos(v + pi / 2) + 2 * sin(v / 2) * cos(u2));
+
+			float y2 = r * (sin(v + pi / 2) + 2 * sin(v / 2) * sin(u2));
+
+			glVertex2f(x1, y1);
+
+			glVertex2f(x2, y2);
+
+		}
+
 	}
-	int k;
-	int len = sizeof(arr) / sizeof(int);
-	cout << "The orginal array are:" << endl;
-	for (k = 0; k<len; k++)
-		cout << arr[k] << ",";
-	cout << endl;
-	quickSort(arr, 0, len - 1);
-	cout << "The sorted array are:" << endl;
-	for (k = 0; k<len; k++)
-		cout << arr[k] << ",";
-	cout << endl;
-	system("pause");
-	return 0;
+
+	glEnd();
+}
+void myDisplay()
+{
+	DrawHeart();
 }
 
-void quickSort(vector <int> &arr, int l, int r)
+int main(int argc, char *argv[])
 {
-	if (l< r)
-	{
-		int i = l, j = r, x = arr[l];
-		while (i < j)
-		{
-			while (i < j && arr[j] <= x) // 从右向左找第一个小于x的数  
-				j--;
-			if (i < j)
-				arr[i++] = arr[j];
-			while (i < j && arr[i]> x) // 从左向右找第一个大于等于x的数  
-				i++;
-			if (i < j)
-				arr[j--] = arr[i];
-		}
-		arr[i] = x;
-		quickSort(arr, l, i - 1); // 递归调用  
-		quickSort(arr, i + 1, r);
-	}
+	glutInit(&argc, argv);
+	glutInitWindowPosition(100, 100);
+	glutInitWindowSize(400, 400);
+	glutCreateWindow("Draw a circle");
+	glutDisplayFunc(myDisplay);
+	glutMainLoop();
+	return 0;
 }

@@ -82,3 +82,11 @@ void Array_max::sorted(const int way,int l,int r)
 		}
 	}
 }
+ ostream & operator<<(ostream & os, const Array_max &arr)
+{
+	for (int i = 0; i < arr.count; i++)
+	{
+		os << arr.array[i] << endl;
+	}
+	return os;
+}

@@ -16,6 +16,7 @@ int main()
 	arr2.find_value(60, '>');    //输出数组中大于60的数据
 
 	arr3.sorted(0);                 //将数据按照升序排序后输出
+	cout <<endl<< arr1 << arr3 << endl;
 
 	return 0;
 }

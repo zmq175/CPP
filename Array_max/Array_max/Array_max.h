@@ -1,7 +1,11 @@
+#ifndef ARRAY_MAX_H_
+#define ARRAY_MAX_H_
+#include <iostream>
 class Array_max
 {
 public:
 	Array_max(int size=10,int value=0);
+	friend std::ostream & operator<<(std::ostream & os, const Array_max &arr);
 	void set_value();             //对数组元素设置值
 	void find_max();             //找出数组中的最大元素
 	void find_value(int num,const char way);//输出大于或小于num的元素
@@ -12,3 +16,4 @@ private:
 	int max;                   //max用来存放最大值
 	int count;                  //数组元素的个数
 };
+#endif
